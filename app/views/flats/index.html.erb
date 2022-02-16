@@ -1,0 +1,14 @@
+<%= link_to 'Add Flat', new_flat_path %>
+
+<ul>
+  <% @flats.each do |flat| %>
+    <h2><%= "Ref - #{flat.id} " %><%= flat.name %></h2>
+    <h3><i class="fa-solid fa-euro-sign"></i><%= flat.price_per_night %></h3>
+    <h3><i class="fa-solid fa-user-group"></i><%= flat.number_of_guests %></h3>
+    <p><%= flat.address %></p>
+    <p><%= flat.description %></p>
+    <p><%= link_to 'More info', flat_path(flat) %></p>
+    <p><%= link_to "Edit flat", edit_flat_path(flat) %></p>
+    <p><%= link_to "Delete flat", flat_path(flat), method: :delete, data: {confirm: "Are you sure?" } %></p>
+  <% end %>
+</ul>
